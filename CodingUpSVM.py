@@ -1,7 +1,17 @@
+
+#!/usr/bin/ python
 import sys
+sys.path.append("C:\Users\Vengat\Downloads\ud120-projects\tools")
+sys.path.append('C:\Users\Vengat\Downloads\ud120-projects\choose_your_own')
+sys.path.append('C:\Users\Vengat\Downloads\ud120-projects\svm')
+
+import os
+os.chdir('C:\Users\Vengat\Downloads\ud120-projects\svm')
+
 from class_vis import prettyPicture
 from prep_terrain_data import makeTerrainData
 
+import sys
 import matplotlib.pyplot as plt
 import copy
 import numpy as np
@@ -14,7 +24,7 @@ features_train, labels_train, features_test, labels_test = makeTerrainData()
 ########################## SVM #################################
 ### we handle the import statement and SVC creation for you here
 from sklearn.svm import SVC
-clf = SVC(kernel="linear")
+clf = SVC(kernel="linear" , gamma=1.0)
 
 
 #### now your job is to fit the classifier
@@ -27,7 +37,6 @@ clf.fit(features_train , labels_train)
 #### store your predictions in a list named pred
 
 pred=clf.predict(features_test)
-
 
 
 from sklearn.metrics import accuracy_score
