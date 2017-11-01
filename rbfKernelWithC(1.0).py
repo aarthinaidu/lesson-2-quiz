@@ -27,7 +27,7 @@ from sklearn.svm import SVC
 
   
     
-clf = SVC(kernel="linear",C=1.0)
+clf = SVC(kernel="rbf",C=1.0)
 
 t0=time()
 clf.fit(features_train , labels_train)

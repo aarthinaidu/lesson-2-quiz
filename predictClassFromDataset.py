@@ -19,15 +19,12 @@ from email_preprocess import preprocess
 ### labels_train and labels_test are the corresponding item labels
 features_train, features_test, labels_train, labels_test = preprocess()
 
-features_train = features_train[:len(features_train)/100] 
+features_train = features_train[:len(features_train)/100]
 labels_train = labels_train[:len(labels_train)/100]
 
 from sklearn.svm import SVC
 
-
-  
-    
-clf = SVC(kernel="linear",C=1.0)
+clf = SVC(kernel="rbf",C=10000)
 
 t0=time()
 clf.fit(features_train , labels_train)
@@ -41,5 +38,8 @@ from sklearn.metrics import accuracy_score
 acc=accuracy_score(pred , labels_test)
 print "\nAccuracy =  {0}".format(acc)
 
+print pred[10]
+print pred[26]
+print pred[50]
 
 
